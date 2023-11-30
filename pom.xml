@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>dev.all-things.reference</groupId>
+	<artifactId>web-application-reference</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<!-- This module will be packaged as POM -->
+	<packaging>pom</packaging>
+
+	<name>Web Application Reference</name>
+	<description>Reference for creating web applications in Java</description>
+
+	<!-- Project details -->
+	<url>https://github.com/all-things-dev/web-application-reference</url>
+
+	<scm>
+		<url>https://github.com/all-things-dev/web-application-reference</url>
+	</scm>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>All Things Dev</name>
+		<url>https://github.com/all-things-dev</url>
+	</organization>
+
+	<!-- Project modules -->
+	<modules>
+
+	</modules>
+
+	<!-- Project properties -->
+	<properties>
+
+		<!-- Plugins -->
+		<maven.reports-plugin.version>3.5.0</maven.reports-plugin.version>
+
+		<!-- Compiler configuration -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<java.version>21</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+	</properties>
+
+	<!-- Build and plugin configuration -->
+	<build>
+
+		<!-- Common convention for generated artifacts -->
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<!-- Managed plugin configuration -->
+		<pluginManagement>
+			<plugins>
+
+				<!-- Maven reports plugin configuration for site generation -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>${maven.reports-plugin.version}</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<!-- Managed dependency configuration -->
+	<dependencyManagement>
+		<dependencies>
+
+		</dependencies>
+	</dependencyManagement>
+</project>
