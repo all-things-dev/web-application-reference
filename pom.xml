@@ -52,9 +52,9 @@
 	<properties>
 
 		<!-- Logging -->
-		<log4j.version>2.22.1</log4j.version>
-		<lmax.version>3.4.4</lmax.version>
-		<slf4j.version>2.0.9</slf4j.version>
+		<log4j.version>3.0.0-beta1</log4j.version>
+		<lmax.version>4.0.0</lmax.version>
+		<slf4j.version>2.1.0-alpha1</slf4j.version>
 
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
@@ -76,6 +76,9 @@
 
 		<!-- Persistence -->
 		<hibernate.version>6.4.1.Final</hibernate.version>
+
+		<!-- Job scheduling -->
+		<quartz.version>2.5.0-rc1</quartz.version>
 
 		<!-- Caching -->
 		<all-things-dev.hazelcast-starter.version>1.0.0</all-things-dev.hazelcast-starter.version>
