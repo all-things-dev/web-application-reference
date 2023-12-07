@@ -45,11 +45,19 @@
 
 	<!-- Project modules -->
 	<modules>
-
+		<module>web-api</module>
 	</modules>
 
 	<!-- Project properties -->
 	<properties>
+
+		<!-- Logging -->
+		<log4j.version>2.22.0</log4j.version>
+		<lmax.version>3.4.4</lmax.version>
+		<slf4j.version>2.0.9</slf4j.version>
+
+		<!-- Apache commons -->
+		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
 
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.11.0</maven.compiler-plugin.version>
@@ -58,6 +66,10 @@
 		<maven.resources-plugin.version>3.3.1</maven.resources-plugin.version>
 		<maven.reports-plugin.version>3.5.0</maven.reports-plugin.version>
 		<maven.war-plugin.version>3.4.0</maven.war-plugin.version>
+
+		<!-- Spring Boot overrides -->
+		<log4j2.version>${log4j.version}</log4j2.version>
+		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
 
 		<!-- Spring Boot plugin overrides -->
 		<maven-compiler-plugin.version>${maven.compiler-plugin.version}</maven-compiler-plugin.version>
@@ -99,6 +111,14 @@
 	<!-- Managed dependency configuration -->
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Logging -->
+
+			<dependency>
+				<groupId>com.lmax</groupId>
+				<artifactId>disruptor</artifactId>
+				<version>${lmax.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
