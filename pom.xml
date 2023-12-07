@@ -48,35 +48,75 @@
 		<module>web-api</module>
 	</modules>
 
+	<!-- External repositories -->
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- External plugin repositories -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-plugin-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<!-- Project properties -->
 	<properties>
 
 		<!-- Logging -->
-		<log4j.version>2.23.1</log4j.version>
+		<log4j.version>3.0.0-beta3</log4j.version>
 		<lmax.version>4.0.0</lmax.version>
+		<slf4j.version>2.1.0-alpha1</slf4j.version>
 
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.17.0</apache.commons-lang.version>
 
+		<!-- Frameworks -->
+		<spring.framework.version>6.2.1</spring.framework.version>
+		<spring.security.version>6.4.2</spring.security.version>
+
+		<!-- Byte code generation -->
+		<byte-buddy.version>1.15.11</byte-buddy.version>
+
 		<!-- Serialization -->
-		<jackson.version>2.18.0</jackson.version>
+		<jackson.version>2.18.2</jackson.version>
 
 		<!-- Database -->
 		<postgresql.jdbc.version>42.7.4</postgresql.jdbc.version>
-		<hikaricp.version>6.0.0</hikaricp.version>
-		<flyway.version>10.20.1</flyway.version>
+		<hikaricp.version>6.2.1</hikaricp.version>
+		<flyway.version>11.1.0</flyway.version>
 
 		<!-- Persistence -->
-		<hibernate.version>6.5.3.Final</hibernate.version>
+		<hibernate.version>6.6.1.Final</hibernate.version>
+
+		<!-- Job scheduling -->
+		<quartz.version>2.5.0</quartz.version>
 
 		<!-- Caching -->
-		<hazelcast.version>5.5.0</hazelcast.version>
 		<all-things-dev.hazelcast-starter.version>1.1.1</all-things-dev.hazelcast-starter.version>
+
+		<!-- Testing -->
+		<junit.jupiter.version>5.11.4</junit.jupiter.version>
+
+		<!-- Application servers -->
+		<tomcat.version>10.1.31</tomcat.version>
 
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.13.0</maven.compiler-plugin.version>
-		<maven.surefire-plugin.version>3.2.5</maven.surefire-plugin.version>
-		<maven.failsafe-plugin.version>3.2.5</maven.failsafe-plugin.version>
+		<maven.surefire-plugin.version>3.5.1</maven.surefire-plugin.version>
+		<maven.failsafe-plugin.version>3.5.1</maven.failsafe-plugin.version>
 		<maven.resources-plugin.version>3.3.1</maven.resources-plugin.version>
 		<maven.reports-plugin.version>3.5.0</maven.reports-plugin.version>
 		<maven.war-plugin.version>3.4.0</maven.war-plugin.version>
@@ -84,8 +124,11 @@
 		<!-- Spring Boot overrides -->
 		<log4j2.version>${log4j.version}</log4j2.version>
 		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
+		<spring-framework.version>${spring.framework.version}</spring-framework.version>
+		<spring-security.version>${spring.security.version}</spring-security.version>
 		<jackson-bom.version>${jackson.version}</jackson-bom.version>
 		<postgresql.version>${postgresql.jdbc.version}</postgresql.version>
+		<junit-jupiter.version>${junit.jupiter.version}</junit-jupiter.version>
 
 		<!-- Spring Boot plugin overrides -->
 		<maven-compiler-plugin.version>${maven.compiler-plugin.version}</maven-compiler-plugin.version>
@@ -97,7 +140,7 @@
 		<!-- Compiler configuration -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<java.version>23</java.version>
+		<java.version>24</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 
@@ -134,14 +177,6 @@
 				<groupId>com.lmax</groupId>
 				<artifactId>disruptor</artifactId>
 				<version>${lmax.version}</version>
-			</dependency>
-
-			<!-- Database -->
-
-			<dependency>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-database-postgresql</artifactId>
-				<version>${flyway.version}</version>
 			</dependency>
 
 			<!-- Caching -->
