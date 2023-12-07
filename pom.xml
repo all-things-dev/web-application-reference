@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.4</version>
+		<version>3.3.0-M3</version>
 
 		<relativePath />
 	</parent>
@@ -48,20 +48,44 @@
 		<module>web-api</module>
 	</modules>
 
+	<!-- External repositories -->
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- External plugin repositories -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-plugin-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<!-- Project properties -->
 	<properties>
 
 		<!-- Logging -->
-		<log4j.version>2.23.1</log4j.version>
+		<log4j.version>3.0.0-beta2</log4j.version>
 		<lmax.version>4.0.0</lmax.version>
-		<slf4j.version>2.0.12</slf4j.version>
+		<slf4j.version>2.1.0-alpha1</slf4j.version>
 
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
 
 		<!-- Frameworks -->
 		<spring.framework.version>6.1.5</spring.framework.version>
-		<spring.security.version>6.2.3</spring.security.version>
+		<spring.security.version>6.3.0-M3</spring.security.version>
 
 		<!-- Byte code generation -->
 		<byte-buddy.version>1.14.12</byte-buddy.version>
@@ -75,15 +99,19 @@
 		<flyway.version>10.10.0</flyway.version>
 
 		<!-- Persistence -->
-		<hibernate.version>6.4.4.Final</hibernate.version>
+		<hibernate.version>6.5.0.CR1</hibernate.version>
+
+		<!-- Job scheduling -->
+		<quartz.version>2.5.0-rc1</quartz.version>
 
 		<!-- Caching -->
+		<hazelcast.version>5.4.0-BETA-2</hazelcast.version>
 		<all-things-dev.hazelcast-starter.version>1.0.0</all-things-dev.hazelcast-starter.version>
 
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.13.0</maven.compiler-plugin.version>
-		<maven.surefire-plugin.version>3.2.1</maven.surefire-plugin.version>
-		<maven.failsafe-plugin.version>3.2.1</maven.failsafe-plugin.version>
+		<maven.surefire-plugin.version>3.2.5</maven.surefire-plugin.version>
+		<maven.failsafe-plugin.version>3.2.5</maven.failsafe-plugin.version>
 		<maven.resources-plugin.version>3.3.1</maven.resources-plugin.version>
 		<maven.reports-plugin.version>3.5.0</maven.reports-plugin.version>
 		<maven.war-plugin.version>3.4.0</maven.war-plugin.version>
@@ -106,7 +134,7 @@
 		<!-- Compiler configuration -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<java.version>22</java.version>
+		<java.version>23</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 

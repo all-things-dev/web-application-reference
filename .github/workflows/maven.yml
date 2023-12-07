@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        jdk_version: [ '22' ]
+        jdk_version: [ '23' ]
 
     steps:
       - name: Download OpenJDK ${{ matrix.jdk_version }}
