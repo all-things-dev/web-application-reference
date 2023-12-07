@@ -8,4 +8,4 @@ Reference for creating web applications in Java.
 2. Maven 3.9.x
 3. Spring Boot 3.4
 4. Apache Tomcat 10.1.x
-5. PostgreSQL 16.x
+5. PostgreSQL 17.x
