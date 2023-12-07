@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        # Test against JDK 26
-        jdk_version: [ '26' ]
+        # Test against JDK 26 - JDK 28
+        jdk_version: [ '26', '27', '28' ]
 
     steps:
       # Check out source code

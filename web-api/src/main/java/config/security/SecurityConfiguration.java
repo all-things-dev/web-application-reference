@@ -11,17 +11,45 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.*;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
+import org.springframework.web.util.pattern.PathPatternParser;
 
-@Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@Configuration(proxyBeanMethods = false)
 public class SecurityConfiguration
 {
 	private static final Logger logger = LogManager.getLogger(SecurityConfiguration.class);
 
+	/**
+	 * Creates a {@link UserDetailsService} bean to stop Spring Security from logging a default password on the console.
+	 *
+	 * @return a {@link UserDetailsService} instance.
+	 */
 	@Bean
-	public SecurityFilterChain configure(final HttpSecurity http) throws Exception
+	UserDetailsService userDetailsService()
+	{
+		return _ -> {
+			throw new UnsupportedOperationException("UserDetailsService is not implemented yet.");
+		};
+	}
+
+	/**
+	 * Creates a {@link PathPatternRequestMatcher.Builder} bean for MVC request matching.
+	 *
+	 * @param parser the {@link PathPatternParser} used for parsing.
+	 * @return a {@link PathPatternRequestMatcher.Builder} instance.
+	 */
+	@Bean
+	public PathPatternRequestMatcher.Builder matcher(final PathPatternParser parser)
+	{
+		return PathPatternRequestMatcher.withPathPatternParser(parser);
+	}
+
+	@Bean
+	public SecurityFilterChain configure(final HttpSecurity http, final PathPatternRequestMatcher.Builder pathPattern)
 	{
 		// Configuring session management
 		http.sessionManagement(SecurityConfiguration::configureSessionManagement);
@@ -33,7 +61,7 @@ public class SecurityConfiguration
 		http.cors(Customizer.withDefaults());
 
 		// Configuring HTTP authentication rules and exceptions
-		http.authorizeHttpRequests(SecurityConfiguration::configureHttpRequestAuthorization);
+		http.authorizeHttpRequests(registry -> configureHttpRequestAuthorization(registry, pathPattern));
 
 		logger.info("Security configuration complete ..");
 
@@ -56,12 +84,13 @@ public class SecurityConfiguration
 	 *
 	 * @param registry HTTP authentication rules registry.
 	 */
-	private static void configureHttpRequestAuthorization(final AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry registry)
+	private static void configureHttpRequestAuthorization(final AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry registry,
+														  final PathPatternRequestMatcher.Builder pathPattern)
 	{
 		// Allowing only POST requests for user login
-		registry.requestMatchers(HttpMethod.POST, "/authentications/login").permitAll();
+		registry.requestMatchers(pathPattern.matcher(HttpMethod.GET, "/authentications/login")).permitAll();
 
 		// Allowing API endpoints to be authenticated
-		registry.requestMatchers("/**").authenticated();
+		registry.requestMatchers(pathPattern.matcher("/**")).authenticated();
 	}
 }
