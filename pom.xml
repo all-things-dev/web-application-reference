@@ -62,6 +62,7 @@
 		<!-- Database -->
 		<postgresql.jdbc.version>42.7.1</postgresql.jdbc.version>
 		<hikaricp.version>5.1.0</hikaricp.version>
+		<flyway.version>10.2.0</flyway.version>
 
 		<!-- Persistence -->
 		<hibernate.version>6.4.0.Final</hibernate.version>
@@ -126,6 +127,14 @@
 				<groupId>com.lmax</groupId>
 				<artifactId>disruptor</artifactId>
 				<version>${lmax.version}</version>
+			</dependency>
+
+			<!-- Database -->
+
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-database-postgresql</artifactId>
+				<version>${flyway.version}</version>
 			</dependency>
 
 		</dependencies>
