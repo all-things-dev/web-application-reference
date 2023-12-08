@@ -59,6 +59,10 @@
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
 
+		<!-- Database -->
+		<postgresql.jdbc.version>42.7.1</postgresql.jdbc.version>
+		<hikaricp.version>5.1.0</hikaricp.version>
+
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.11.0</maven.compiler-plugin.version>
 		<maven.surefire-plugin.version>3.2.1</maven.surefire-plugin.version>
@@ -70,6 +74,7 @@
 		<!-- Spring Boot overrides -->
 		<log4j2.version>${log4j.version}</log4j2.version>
 		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
+		<postgresql.version>${postgresql.jdbc.version}</postgresql.version>
 
 		<!-- Spring Boot plugin overrides -->
 		<maven-compiler-plugin.version>${maven.compiler-plugin.version}</maven-compiler-plugin.version>

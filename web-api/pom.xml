@@ -117,6 +117,25 @@
 			<artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
 		</dependency>
 
+		<!-- Database -->
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+		</dependency>
+
+		<!-- Persistence -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
 		<!-- Testing -->
 
 		<dependency>
