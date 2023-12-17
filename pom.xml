@@ -67,6 +67,9 @@
 		<!-- Persistence -->
 		<hibernate.version>6.4.0.Final</hibernate.version>
 
+		<!-- Caching -->
+		<all-things-dev.hazelcast-starter.version>1.0.0</all-things-dev.hazelcast-starter.version>
+
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.11.0</maven.compiler-plugin.version>
 		<maven.surefire-plugin.version>3.2.1</maven.surefire-plugin.version>
@@ -135,6 +138,14 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-database-postgresql</artifactId>
 				<version>${flyway.version}</version>
+			</dependency>
+
+			<!-- Caching -->
+
+			<dependency>
+				<groupId>dev.all-things.boot</groupId>
+				<artifactId>hazelcast-spring-boot-starter</artifactId>
+				<version>${all-things-dev.hazelcast-starter.version}</version>
 			</dependency>
 
 		</dependencies>

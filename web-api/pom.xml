@@ -153,6 +153,13 @@
 			<artifactId>hibernate-hikaricp</artifactId>
 		</dependency>
 
+		<!-- Caching -->
+
+		<dependency>
+			<groupId>dev.all-things.boot</groupId>
+			<artifactId>hazelcast-spring-boot-starter</artifactId>
+		</dependency>
+
 		<!-- Testing -->
 
 		<dependency>
