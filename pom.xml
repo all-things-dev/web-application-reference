@@ -61,6 +61,7 @@
 
 		<!-- Frameworks -->
 		<spring.framework.version>6.1.2</spring.framework.version>
+		<spring.security.version>6.2.1</spring.security.version>
 
 		<!-- Serialization -->
 		<jackson.version>2.16.0</jackson.version>
@@ -88,6 +89,7 @@
 		<log4j2.version>${log4j.version}</log4j2.version>
 		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
 		<spring-framework.version>${spring.framework.version}</spring-framework.version>
+		<spring-security.version>${spring.security.version}</spring-security.version>
 		<jackson-bom.version>${jackson.version}</jackson-bom.version>
 		<postgresql.version>${postgresql.jdbc.version}</postgresql.version>
 
