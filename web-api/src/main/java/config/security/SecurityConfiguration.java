@@ -6,19 +6,39 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.*;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Provides web security configuration.
+ */
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 public class SecurityConfiguration
 {
 	private static final Logger logger = LogManager.getLogger(SecurityConfiguration.class);
+
+	/**
+	 * Provides {@link PasswordEncoder} instance to be used for password hashing.
+	 * <p>
+	 * The instance is configured with the following properties -
+	 * 	1. Algorithm: PBKDF2 with HMAC SHA512
+	 * 	2. Salt: 16 bytes
+	 * 	3. Iterations: 310_000
+	 *
+	 * @return {@link PasswordEncoder} instance.
+	 */
+	@Bean
+	public PasswordEncoder passwordEncoder()
+	{
+		return new Pbkdf2PasswordEncoder("", 16, 310000, SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA512);
+	}
 
 	@Bean
 	public SecurityFilterChain configure(final HttpSecurity http) throws Exception

@@ -133,7 +133,7 @@ public class JacksonConfiguration
 		// Enabling serialization for classes from 'java.time' package
 		mapper.registerModule(new JavaTimeModule());
 
-		// Configuring server timezone as the default when timezone is not provided
+		// Configuring server timezone as the default when timezone is not provided by the execution context
 		mapper.setTimeZone(TimeZone.getDefault());
 
 		return mapper;

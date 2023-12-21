@@ -62,6 +62,7 @@
 		<!-- Frameworks -->
 		<spring.framework.version>6.1.5</spring.framework.version>
 		<spring.security.version>6.2.2</spring.security.version>
+		<spring.data-jpa.version>2023.1.1</spring.data-jpa.version>
 
 		<!-- Byte code generation -->
 		<byte-buddy.version>1.14.12</byte-buddy.version>
@@ -93,6 +94,7 @@
 		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
 		<spring-framework.version>${spring.framework.version}</spring-framework.version>
 		<spring-security.version>${spring.security.version}</spring-security.version>
+		<spring-data-bom.version>${spring.data-jpa.version}</spring-data-bom.version>
 		<jackson-bom.version>${jackson.version}</jackson-bom.version>
 		<postgresql.version>${postgresql.jdbc.version}</postgresql.version>
 
