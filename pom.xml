@@ -75,7 +75,7 @@
 		<flyway.version>10.6.0</flyway.version>
 
 		<!-- Persistence -->
-		<hibernate.version>6.4.1.Final</hibernate.version>
+		<hibernate.version>6.4.2.Final</hibernate.version>
 
 		<!-- Caching -->
 		<all-things-dev.hazelcast-starter.version>1.0.0</all-things-dev.hazelcast-starter.version>
