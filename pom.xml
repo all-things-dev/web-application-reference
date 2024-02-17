@@ -54,7 +54,7 @@
 		<!-- Logging -->
 		<log4j.version>2.22.1</log4j.version>
 		<lmax.version>3.4.4</lmax.version>
-		<slf4j.version>2.0.11</slf4j.version>
+		<slf4j.version>2.0.12</slf4j.version>
 
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
