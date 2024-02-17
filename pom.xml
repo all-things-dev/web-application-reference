@@ -46,6 +46,7 @@
 	<!-- Project modules -->
 	<modules>
 		<module>web-api</module>
+		<module>web-apps</module>
 	</modules>
 
 	<!-- Project properties -->
