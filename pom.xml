@@ -53,7 +53,7 @@
 
 		<!-- Logging -->
 		<log4j.version>2.23.0</log4j.version>
-		<lmax.version>3.4.4</lmax.version>
+		<lmax.version>4.0.0</lmax.version>
 		<slf4j.version>2.0.12</slf4j.version>
 
 		<!-- Apache commons -->
