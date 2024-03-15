@@ -67,7 +67,7 @@
 		<byte-buddy.version>1.14.12</byte-buddy.version>
 
 		<!-- Serialization -->
-		<jackson.version>2.16.1</jackson.version>
+		<jackson.version>2.17.0</jackson.version>
 
 		<!-- Database -->
 		<postgresql.jdbc.version>42.7.3</postgresql.jdbc.version>
