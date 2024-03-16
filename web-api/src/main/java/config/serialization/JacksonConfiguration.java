@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.datatype.hibernate6.Hibernate6Module;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.jakarta.xmlbind.JakartaXmlBindAnnotationModule;
@@ -126,6 +127,9 @@ public class JacksonConfiguration
 
 		// Enabling usage of XML-binding annotations for XML and JSON serialization
 		mapper.registerModule(new JakartaXmlBindAnnotationModule());
+
+		// Enabling support for Hibernate 6 data types, e.g. PersistentSet
+		mapper.registerModule(new Hibernate6Module());
 
 		// Enabling support for JDK 8 data types, e.g. Optional
 		mapper.registerModule(new Jdk8Module());

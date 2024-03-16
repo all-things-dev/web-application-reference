@@ -59,7 +59,7 @@ public class SecurityConfiguration
 	private static void configureHttpRequestAuthorization(final AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry registry)
 	{
 		// Allowing only POST requests for user login
-		registry.requestMatchers(HttpMethod.POST, "/authentications/login").permitAll();
+		registry.requestMatchers(HttpMethod.GET, "/authentications/**").permitAll();
 
 		// Allowing API endpoints to be authenticated
 		registry.requestMatchers("/**").authenticated();
