@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.4</version>
+		<version>3.2.5</version>
 
 		<relativePath />
 	</parent>
@@ -54,17 +54,9 @@
 		<!-- Logging -->
 		<log4j.version>2.23.1</log4j.version>
 		<lmax.version>4.0.0</lmax.version>
-		<slf4j.version>2.0.12</slf4j.version>
 
 		<!-- Apache commons -->
 		<apache.commons-lang.version>3.14.0</apache.commons-lang.version>
-
-		<!-- Frameworks -->
-		<spring.framework.version>6.1.5</spring.framework.version>
-		<spring.security.version>6.2.3</spring.security.version>
-
-		<!-- Byte code generation -->
-		<byte-buddy.version>1.14.12</byte-buddy.version>
 
 		<!-- Serialization -->
 		<jackson.version>2.17.0</jackson.version>
@@ -91,8 +83,6 @@
 		<!-- Spring Boot overrides -->
 		<log4j2.version>${log4j.version}</log4j2.version>
 		<commons-lang3.version>${apache.commons-lang.version}</commons-lang3.version>
-		<spring-framework.version>${spring.framework.version}</spring-framework.version>
-		<spring-security.version>${spring.security.version}</spring-security.version>
 		<jackson-bom.version>${jackson.version}</jackson-bom.version>
 		<postgresql.version>${postgresql.jdbc.version}</postgresql.version>
 
