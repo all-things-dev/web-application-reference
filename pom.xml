@@ -70,6 +70,7 @@
 		<hibernate.version>6.4.4.Final</hibernate.version>
 
 		<!-- Caching -->
+		<hazelcast.version>5.5.0</hazelcast.version>
 		<all-things-dev.hazelcast-starter.version>1.0.0</all-things-dev.hazelcast-starter.version>
 
 		<!-- Plugins -->
