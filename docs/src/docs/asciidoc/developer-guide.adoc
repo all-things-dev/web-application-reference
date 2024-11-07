@@ -1,0 +1,69 @@
+:doctype: book
+:toc:
+:toclevels: 4
+:tabsize: 4
+:numbered:
+:sectanchors:
+:sectnums:
+:source-highlighter: rouge
+
+:app_name: Web Application Reference
+:app_name_safe: web-application-reference
+
+= {app_name} : Developer Guide
+All Things Dev
+:sectnums:
+:sectnumlevels: 5
+
+== Nomenclature
+
+. `+{variable-name}+` refers to the property placeholder to be used for replacing actual values during installation.
+
+== Scope
+
+Scope of this document is to serve as a reference for developers of *{app_name}*.
+
+== Target Audience
+
+The development team must use this document as a reference for all target environments.
+
+== Required Software
+
+[%header,cols="1,2,2,5"]
+|===
+|Sr. No.
+|Software
+|Version
+|Download Page
+
+|1
+|Java SDK
+|JDK 23 (x86_64)
+|https://jdk.java.net/23/
+
+|2
+|Apache Tomcat
+|10.1.x (x86_64)
+|https://tomcat.apache.org/download-10.cgi
+
+|3
+|PostgreSQL
+|17.x (x86_64)
+|https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows
+
+|===
+
+== Annexure
+
+[[response-codes]]
+=== API Response Codes
+
+.Response Codes
+[%header,cols="3,7"]
+|===
+|Response Code |Description
+|`200` |Success
+|`400` |Bad Request
+|`500` |Server Error
+|===
+
