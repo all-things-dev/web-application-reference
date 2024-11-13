@@ -73,6 +73,9 @@
 		<hazelcast.version>5.5.0</hazelcast.version>
 		<all-things-dev.hazelcast-starter.version>1.1.1</all-things-dev.hazelcast-starter.version>
 
+		<!-- Job scheduler -->
+		<quartz.version>2.5.0</quartz.version>
+
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.13.0</maven.compiler-plugin.version>
 		<maven.surefire-plugin.version>3.2.5</maven.surefire-plugin.version>

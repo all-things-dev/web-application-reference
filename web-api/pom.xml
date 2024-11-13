@@ -160,6 +160,13 @@
 			<artifactId>hazelcast-spring-boot-starter</artifactId>
 		</dependency>
 
+		<!-- Scheduling -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-quartz</artifactId>
+		</dependency>
+
 		<!-- Testing -->
 
 		<dependency>
