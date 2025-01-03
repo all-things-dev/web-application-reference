@@ -5,7 +5,7 @@ Reference for creating web applications in Java.
 ## System Requirements
 
 1. JDK 27
-2. Maven 3.10.x
+2. Maven 4.0
 3. Spring Boot 4.2
 4. Apache Tomcat 11.x
 5. PostgreSQL 18.x
