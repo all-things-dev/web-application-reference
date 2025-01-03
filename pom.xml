@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.1.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd">
 
 	<!-- Spring Boot parent configuration for centralized dependency management -->
 	<parent>
@@ -43,10 +41,7 @@
 		<url>https://github.com/all-things-dev</url>
 	</organization>
 
-	<!-- Project modules -->
-	<modules>
-		<module>web-api</module>
-	</modules>
+	<!-- Project subprojects -->
 
 	<!-- Project properties -->
 	<properties>
@@ -69,8 +64,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<java.version>27</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
 
 	</properties>
 
@@ -141,6 +134,11 @@
 			</plugin>
 
 		</plugins>
+		<sources>
+			<source>
+				<targetVersion>${java.version}</targetVersion>
+			</source>
+		</sources>
 	</build>
 
 	<!-- Managed dependency configuration -->
