@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.1.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd">
 
 	<!-- Spring Boot parent configuration for centralized dependency management -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.2.0-M2</version>
+		<version>4.2.0-RC1</version>
 
 		<relativePath />
 	</parent>
@@ -43,10 +41,7 @@
 		<url>https://github.com/all-things-dev</url>
 	</organization>
 
-	<!-- Project modules -->
-	<modules>
-		<module>web-api</module>
-	</modules>
+	<!-- Project subprojects -->
 
 	<!-- Project properties -->
 	<properties>
@@ -67,7 +62,7 @@
 		<byte-buddy.version>1.18.14</byte-buddy.version>
 
 		<!-- Serialization -->
-		<jackson.version>3.2.3</jackson.version>
+		<jackson.version>3.2.4</jackson.version>
 		<jackson2.version>2.22.3</jackson2.version>
 
 		<!-- Database -->
@@ -91,10 +86,10 @@
 		<argLine />
 
 		<!-- Maven -->
-		<maven.minimum.version>3.10</maven.minimum.version>
+		<maven.minimum.version>4.0.0-rc-7</maven.minimum.version>
 
 		<!-- Application servers -->
-		<tomcat.version>11.0.26</tomcat.version>
+		<tomcat.version>11.0.27</tomcat.version>
 
 		<!-- Plugins -->
 		<maven.compiler-plugin.version>3.15.0</maven.compiler-plugin.version>
@@ -125,8 +120,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<java.version>27</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
 
 	</properties>
 
@@ -197,6 +190,11 @@
 			</plugin>
 
 		</plugins>
+		<sources>
+			<source>
+				<targetVersion>${java.version}</targetVersion>
+			</source>
+		</sources>
 	</build>
 
 	<!-- Managed dependency configuration -->
