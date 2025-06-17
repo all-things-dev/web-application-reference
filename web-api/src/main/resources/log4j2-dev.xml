@@ -18,7 +18,7 @@
         </Console>
 
         <!-- Rolling file appender -->
-        <RollingFile name="File" fileName="${Log.Dir}/${Log.FileName}.log" filePattern="${Log.Dir}/${Log.FileName}-%d{yyyyMMdd}-%i.gz">
+        <!-- <RollingFile name="File" fileName="${Log.Dir}/${Log.FileName}.log" filePattern="${Log.Dir}/${Log.FileName}-%d{yyyyMMdd}-%i.gz">
             <PatternLayout>
                 <Pattern>${Log.Pattern}</Pattern>
             </PatternLayout>
@@ -27,7 +27,7 @@
                 <SizeBasedTriggeringPolicy size="100 MB" />
             </Policies>
             <DefaultRolloverStrategy max="10" />
-        </RollingFile>
+        </RollingFile> -->
 
     </Appenders>
 
@@ -36,7 +36,6 @@
 
         <Root level="INFO">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="File" />
         </Root>
 
     </Loggers>
