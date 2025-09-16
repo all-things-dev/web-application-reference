@@ -2,33 +2,30 @@ name: Maven
 
 on:
   push:
-    branches: [ master, features/staging, features/next ]
+    branches: [ master, features/staging ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    # Use Ubuntu 24.04 as the runner environment
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        jdk_version: [ '24' ]
+        # Test against JDK 25
+        jdk_version: [ '25' ]
 
     steps:
-      - name: Download OpenJDK ${{ matrix.jdk_version }}
-        id: download
-        uses: oracle-actions/setup-java@v1
-        with:
-          website: jdk.java.net
-          release: ${{ matrix.jdk_version }}
-          install: false
+      # Check out source code
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-      - uses: actions/checkout@v4
-      - name: Install OpenJDK ${{ matrix.jdk_version }}
-        uses: actions/setup-java@v4
+      # Set up Oracle JDK
+      - name: Set up JDK ${{ matrix.jdk_version }}
+        uses: actions/setup-java@v5
         with:
-          distribution: jdkfile
-          jdkFile: ${{ steps.download.outputs.archive }}
-          java-version: ${{ steps.download.outputs.version }}
+          distribution: 'oracle'
+          java-version: ${{ matrix.jdk_version }}
           cache: 'maven'
 
       - name: Build with Maven
