@@ -70,7 +70,7 @@
 			<artifactId>disruptor</artifactId>
 		</dependency>
 
-		<!-- Apache commons -->
+		<!-- Apache Commons -->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -82,22 +82,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-
-			<exclusions>
-
-				<!-- Disabling default 'logback' logging in favor of Log4j2 -->
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-
-				<!-- Disabling (unused) snakeyaml dependency -->
-				<exclusion>
-					<groupId>org.yaml</groupId>
-					<artifactId>snakeyaml</artifactId>
-				</exclusion>
-
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -108,13 +92,8 @@
 		<!-- Serialization / deserialization -->
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<groupId>tools.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
 		</dependency>
 
 		<!-- Security -->
@@ -132,6 +111,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-flyway</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-database-postgresql</artifactId>
 		</dependency>
@@ -139,13 +123,8 @@
 		<!-- Persistence -->
 
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.orm</groupId>
-			<artifactId>hibernate-core</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-hibernate</artifactId>
 		</dependency>
 
 		<dependency>
@@ -165,6 +144,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 		</dependency>
 
 		<!-- Development tools -->

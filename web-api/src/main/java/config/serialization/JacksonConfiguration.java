@@ -3,17 +3,16 @@ package config.serialization;
 import java.util.TimeZone;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.module.jakarta.xmlbind.JakartaXmlBindAnnotationModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
+import org.springframework.http.converter.xml.JacksonXmlHttpMessageConverter;
+import tools.jackson.databind.*;
+import tools.jackson.databind.cfg.DateTimeFeature;
+import tools.jackson.databind.cfg.MapperBuilder;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.dataformat.xml.XmlMapper;
+import tools.jackson.dataformat.xml.XmlModule;
 
 /**
  * Provides configuration for JSON and XML serialization with Jackson serializers and respective message converters.
@@ -59,9 +58,9 @@ public class JacksonConfiguration
 	 * @return instance of message converter for JSON.
 	 */
 	@Bean(name = "mappingJackson2HttpMessageConverter")
-	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter()
+	public JacksonJsonHttpMessageConverter mappingJackson2HttpMessageConverter()
 	{
-		return new MappingJackson2HttpMessageConverter(createJsonMapper());
+		return new JacksonJsonHttpMessageConverter(createJsonMapper());
 	}
 
 	/**
@@ -70,9 +69,9 @@ public class JacksonConfiguration
 	 * @return instance of message converter for XML.
 	 */
 	@Bean("mappingJackson2XmlHttpMessageConverter")
-	public MappingJackson2XmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter()
+	public JacksonXmlHttpMessageConverter mappingJackson2XmlHttpMessageConverter()
 	{
-		return new MappingJackson2XmlHttpMessageConverter(createXmlMapper());
+		return new JacksonXmlHttpMessageConverter(createXmlMapper());
 	}
 
 	/**
@@ -83,7 +82,7 @@ public class JacksonConfiguration
 	private static JsonMapper createJsonMapper()
 	{
 		// Configuring JSON mapper
-		return configureMapper(new JsonMapper());
+		return configureMapper(JsonMapper.builder()).build();
 	}
 
 	/**
@@ -94,48 +93,39 @@ public class JacksonConfiguration
 	private static XmlMapper createXmlMapper()
 	{
 		// Configuring XML mapper
-		final XmlMapper xmlMapper = configureMapper(new XmlMapper());
+		final XmlMapper.Builder builder = configureMapper(XmlMapper.builder());
 
 		// Enabling serialization to XML
-		xmlMapper.registerModule(new JacksonXmlModule());
+		builder.addModule(new XmlModule());
 
-		return xmlMapper;
+		return builder.build();
 	}
 
 	/**
 	 * Configures received mapper with application defaults.
 	 *
-	 * @param mapper {@link JsonMapper} or {@link XmlMapper} instance to be configured.
+	 * @param builder {@link JsonMapper} or {@link XmlMapper} instance to be configured.
 	 */
-	private static <T extends ObjectMapper> T configureMapper(final T mapper)
+	private static <O extends ObjectMapper, T extends MapperBuilder<O, ?>> T configureMapper(final T builder)
 	{
-		// Enabling inclusion of only non-fields in serialized content
-		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+		// Enabling inclusion of only non-null fields in serialized content
+		builder.changeDefaultPropertyInclusion(inclusion -> inclusion.withValueInclusion(JsonInclude.Include.NON_NULL));
 
 		// Disabling failure generation for unknown properties
-		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+		builder.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
 		// Disabling output formatting
-		mapper.disable(SerializationFeature.INDENT_OUTPUT);
+		builder.disable(SerializationFeature.INDENT_OUTPUT);
 
 		/*
 		 * Disabling serialization of dates / timestamps as millisecond values.
-		 * This effectively enables serialization in standard ISO-8601 format e.g. 2023-12-08T18:01:37.486+05:30.
+		 * This effectively enables serialization in standard ISO-8601 format e.g., 2023-12-08T18:01:37.486+05:30.
 		 */
-		mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+		builder.disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-		// Enabling usage of XML-binding annotations for XML and JSON serialization
-		mapper.registerModule(new JakartaXmlBindAnnotationModule());
+		// Configuring the server timezone as the default when a timezone is not provided
+		builder.defaultTimeZone(TimeZone.getDefault());
 
-		// Enabling support for JDK 8 data types, e.g. Optional
-		mapper.registerModule(new Jdk8Module());
-
-		// Enabling serialization for classes from 'java.time' package
-		mapper.registerModule(new JavaTimeModule());
-
-		// Configuring server timezone as the default when timezone is not provided
-		mapper.setTimeZone(TimeZone.getDefault());
-
-		return mapper;
+		return builder;
 	}
 }
