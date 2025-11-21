@@ -29,7 +29,7 @@ public class SecurityConfiguration
 		// Disabling CSRF protection due to stateless authentication
 		http.csrf(AbstractHttpConfigurer::disable);
 
-		// Configuring CORS with default configuration
+		// Configuring CORS with the default configuration
 		http.cors(Customizer.withDefaults());
 
 		// Configuring HTTP authentication rules and exceptions

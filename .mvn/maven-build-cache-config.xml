@@ -4,7 +4,7 @@
 	<!-- Maven build cache configuration -->
 	<configuration>
 
-		<!-- Enabling build cache with default configuration -->
+		<!-- Enabling build cache with the default configuration -->
 		<enabled>true</enabled>
 
 	</configuration>

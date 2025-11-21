@@ -1,7 +1,7 @@
 package dev.all_things.reference;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 
 /**
  * Provides start-up configuration of test classes annotated with {@link WebMvcTest}.
