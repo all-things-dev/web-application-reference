@@ -12,13 +12,13 @@ jobs:
 
     strategy:
       matrix:
-        # Test against JDK 25
-        jdk_version: [ '25' ]
+        # Test against JDK 26
+        jdk_version: [ '26' ]
 
     steps:
       # Check out source code
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Set up Oracle JDK
       - name: Set up JDK ${{ matrix.jdk_version }}
