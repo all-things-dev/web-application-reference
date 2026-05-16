@@ -55,7 +55,8 @@
 		<lmax.version>4.0.0</lmax.version>
 
 		<!-- Caching -->
-		<all-things-dev.hazelcast-starter.version>1.1.1</all-things-dev.hazelcast-starter.version>
+		<hazelcast.version>5.7.0</hazelcast.version>
+		<all-things-dev.hazelcast-starter.version>2.0.0</all-things-dev.hazelcast-starter.version>
 
 		<!-- Compiler configuration -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

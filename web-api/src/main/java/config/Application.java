@@ -1,5 +1,6 @@
 package config;
 
+import com.hazelcast.spring.boot.HazelcastBoot4ObjectExtractionAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -13,7 +14,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * as WAR in servlet containers e.g. Tomcat.
  */
 @ConfigurationPropertiesScan
-@SpringBootApplication(scanBasePackages = { "config", "dev.all_things" })
+@SpringBootApplication(scanBasePackages = { "config", "dev.all_things" }, exclude = HazelcastBoot4ObjectExtractionAutoConfiguration.class)
 public class Application
 		extends SpringBootServletInitializer
 {
