@@ -2,7 +2,7 @@ name: Maven
 
 on:
   push:
-    branches: [ master, features/staging ]
+    branches: [ master, features/staging, features/next ]
 
 jobs:
   build:
@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        # Test against JDK 26 - JDK 28
-        jdk_version: [ '26', '27', '28' ]
+        # Test against JDK 26 and JDK 27
+        jdk_version: [ '26', '27' ]
 
     steps:
       # Check out source code

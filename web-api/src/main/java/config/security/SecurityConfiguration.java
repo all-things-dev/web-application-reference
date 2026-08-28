@@ -88,6 +88,7 @@ public class SecurityConfiguration
 														  final PathPatternRequestMatcher.Builder pathPattern)
 	{
 		// Allowing only POST requests for user login
+		registry.requestMatchers(pathPattern.matcher(HttpMethod.GET, "/authentications/hello")).permitAll();
 		registry.requestMatchers(pathPattern.matcher(HttpMethod.GET, "/authentications/login")).permitAll();
 
 		// Allowing API endpoints to be authenticated

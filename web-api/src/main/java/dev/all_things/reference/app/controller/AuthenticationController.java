@@ -21,9 +21,10 @@ public class AuthenticationController
 	}
 
 	@GetMapping(path = "/hello/{fileName}")
-	public ResponseEntity<String> sayHelloWithFile(@RequestHeader(value = "Authorization", defaultValue = "") final String token)
+	public ResponseEntity<String> sayHelloWithFile(final @RequestHeader(value = "Authorization", defaultValue = "") String token,
+												   final @PathVariable String fileName)
 	{
-		logger.info("Token : '{}' ..", token);
+		logger.info("File name '{}', Token : '{}' ..", fileName, token);
 
 		return ResponseEntity.ok("Hello");
 	}
