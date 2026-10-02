@@ -26,8 +26,7 @@ jobs:
         with:
           distribution: 'oracle-openjdk'
           java-version: ${{ matrix.jdk_version }}
-          maven-version: '3.10'
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn -B verify --file pom.xml
+        run: ./mvnw -B verify --file pom.xml
