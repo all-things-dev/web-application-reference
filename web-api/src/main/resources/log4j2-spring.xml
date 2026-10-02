@@ -4,8 +4,7 @@
 	<!-- Logging properties -->
 	<Properties>
 		<Property name="CATALINA_HOME">.</Property>
-		<Property name="Log.Dir">${env:CATALINA_HOME}/logs</Property>
-		<Property name="Log.FileName">@project.artifactId@</Property>
+		<Property name="Log.FileNamePrefix">${env:CATALINA_HOME}/logs/web-api</Property>
 		<Property name="Log.Pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{45} : %msg%n</Property>
 	</Properties>
 
@@ -13,7 +12,7 @@
 	<Appenders>
 
 		<!-- Rolling file appender -->
-        <RollingFile name="File" fileName="${Log.Dir}/${Log.FileName}.log" filePattern="${Log.Dir}/${Log.FileName}-%d{yyyyMMdd}-%i.gz">
+        <RollingFile name="File" fileName="${Log.FileNamePrefix}.log" filePattern="${Log.FileNamePrefix}-%d{yyyyMMdd}-%i.gz">
             <PatternLayout>
                 <Pattern>${Log.Pattern}</Pattern>
             </PatternLayout>

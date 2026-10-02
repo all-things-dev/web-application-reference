@@ -25,24 +25,6 @@
 	<!-- Build and plugin configuration -->
 	<build>
 
-		<!-- Maven resource filtering plugin configuration -->
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>log4j2-*.xml</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-				<includes>
-					<include>**/*.*</include>
-				</includes>
-			</resource>
-		</resources>
-
 		<!-- Module plugin configuration -->
 		<plugins>
 
