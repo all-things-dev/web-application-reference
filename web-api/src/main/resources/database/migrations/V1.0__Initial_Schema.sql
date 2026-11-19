@@ -6,6 +6,3 @@
 -- CREATE DATABASE "web-application-reference" WITH ENCODING 'UTF-8';
 
 -- Extensions
-
--- UUID
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp" SCHEMA "public";
